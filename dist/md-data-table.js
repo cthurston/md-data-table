@@ -228,7 +228,9 @@ function mdColumn($compile, $mdUtil) {
 
     function setOrder() {
       scope.$applyAsync(function () {
-        if(isActive()) {
+        if(headCtrl.order === '-' + scope.orderBy){
+          headCtrl.order = '';
+        } else if(isActive()) {
           headCtrl.order = scope.getDirection() === 'md-asc' ? '-' + scope.orderBy : scope.orderBy;
         } else {
           headCtrl.order = scope.getDirection() === 'md-asc' ? scope.orderBy : '-' + scope.orderBy;
